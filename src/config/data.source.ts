@@ -11,7 +11,6 @@ ConfigModule.forRoot({
 
 const configService = new ConfigService();
 
-console.log(configService.get('DB_PASSWORD'))
 export const DataSourceConfig: DataSourceOptions = {
     type: 'postgres',
     host: configService.get('DB_HOST'),
@@ -20,7 +19,7 @@ export const DataSourceConfig: DataSourceOptions = {
     password: configService.get('DB_PASSWORD'),
     database: configService.get('DB_NAME'),
     entities: [__dirname + '/../**/**/*.entity{.ts,.js}'],
-    migrations: [__dirname + '/../migrations/*{.ts,.js}'],
+    migrations: [__dirname + '/../../migrations/*{.ts,.js}'],
     synchronize: false,
     migrationsRun: true,
     logging: false,
